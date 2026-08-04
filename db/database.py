@@ -7,7 +7,7 @@ from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy import Column, String, Float, Boolean
 from sqlalchemy.dialects.sqlite import insert
-from sqlalchemy.pool import QueuePool
+from sqlalchemy.pool import AsyncAdaptedQueuePool
 
 from schema.models import ProductRecord
 
@@ -30,7 +30,7 @@ class Database:
         # simultaneously and exhaust file descriptors.
         self.engine = create_async_engine(
             db_path,
-            poolclass=QueuePool,
+            poolclass=AsyncAdaptedQueuePool,
             pool_size=pool_size,
             max_overflow=2,
             connect_args={"timeout": 15.0} # Increase timeout for SQLite lock contention

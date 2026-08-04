@@ -1,7 +1,7 @@
-aiohttp==3.9.5
-pydantic==2.7.1
-SQLAlchemy==2.0.30
-aiosqlite==0.20.0
-beautifulsoup4==4.12.3
-pytest==8.2.0
-pytest-asyncio==0.23.6
+aiohttp
+pydantic
+SQLAlchemy
+aiosqlite
+beautifulsoup4
+pytest
+pytest-asyncio
